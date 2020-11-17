@@ -93,7 +93,12 @@ public class Androlib {
             OS.rmdir(smaliDir);
             smaliDir.mkdirs();
             LOGGER.info("Baksmaling " + filename + "...");
-            SmaliDecoder.decode(apkFile, smaliDir, filename, bakdeb, api);
+            boolean status = filename.contains("/");
+            if(!status) {
+                SmaliDecoder.decode(apkFile, smaliDir, filename, bakdeb, api);
+            }else {
+                LOGGER.info("Ignore " + filename + "...");
+            }
         } catch (BrutException ex) {
             throw new AndrolibException(ex);
         }
