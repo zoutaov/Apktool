@@ -156,7 +156,7 @@ public class ResFileDecoder {
     public void decodeManifest(Directory inDir, String inFileName,
                                Directory outDir, String outFileName) throws AndrolibException {
         try (
-                InputStream in = inDir.getFileInput(inFileName);
+                InputStream in = FixChunkClass.fixChunkValue(inDir, inFileName);
                 OutputStream out = outDir.getFileOutput(outFileName)
         ) {
             ((XmlPullStreamDecoder) mDecoders.getDecoder("xml")).decodeManifest(in, out);
