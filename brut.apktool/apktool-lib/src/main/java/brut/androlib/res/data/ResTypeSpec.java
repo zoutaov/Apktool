@@ -85,7 +85,7 @@ public final class ResTypeSpec {
 
     public void addResSpec(ResResSpec spec) throws AndrolibException {
         if (mResSpecs.put(spec.getName(), spec) != null) {
-            throw new AndrolibException(String.format("Multiple res specs: %s/%s", getName(), spec.getName()));
+            //throw new AndrolibException(String.format("Multiple res specs: %s/%s", getName(), spec.getName()));
         }
     }
 
